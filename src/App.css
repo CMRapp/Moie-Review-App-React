@@ -1,0 +1,78 @@
+
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+body {
+  height: 100%;
+  background-color:#ffffff;
+}
+
+header h1{
+  text-align:center;
+}
+
+footer {
+  text-align: center;
+}
+.nav-link:hover, .color-icon{
+  color:yellow !important;
+}
+
+.synopsis {
+  font-weight:bold;
+  font-style: italic;
+}
+
+/* Star Rating Styling 
+   Credit: https://codepen.io/yaworek/pen/JJpEaZ
+*/
+.starrating > input {display: none;}  /* Remove radio buttons */
+
+.starrating > label:before { 
+  content: "\f005"; /* Star */
+  font-size: 3em;
+  font-family: FontAwesome;
+  display: inline-block; 
+}
+
+.starrating > label
+{
+  color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label
+{ color: #ffca08 ; } /* Set yellow color when star checked */
+
+.starrating > input:hover ~ label
+{ color: #ffca08 ;  } /* Set yellow color when star hover */
+
+
+/* STYLE SCROLLBARS */
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #fef4cf #212529;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #212529;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #fef4cf;
+  border-radius: 6px;
+  border: 3px solid #212529;
+}
+
+.footer-logo{
+  height:45px;
+  margin-left:20px;
+}
+
+/* Media Querries */
+
+
