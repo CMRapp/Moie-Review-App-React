@@ -1,43 +1,51 @@
 import React from 'react';
 import Review from './review';
-import ReviewButton from './review-button';
 import ReviewList from './review-list';
+import ReviewForm from './review-form';
 
 export default class Movie extends React.Component {
 constructor (props){
     super(props);
     this.state= {
-        reviews: props.reviews,
-        content: props.content
+        reviews: this.props.movie.reviews
     };
 }
 
 render () {
-    //create movie component and display props that are passed in
+    //use const for cleaner code below when inserting props
+    const {title, rating, released,synopsis, image} = this.props.movie;
+    const {reviews} = this.state;
+
     return (  
         <div className='container-fluid'>
             <div className='card my-5'>
                 <div className='card-header bg-primary text-white'>
-                    {this.props.title}
+                    {title}
                 </div>
 
                 <div className='card-body'>
                     <div className='row'>
                         <div className='col-8'>
-                            Rating: {this.props.rating}&nbsp;&nbsp;
-                            Release Date: {this.props.released}<br/>
+                            Rating: {rating}&nbsp;&nbsp;
+                            Release Date: {released}<br/>
                             <h5 className='mt-3'>Storyline</h5>
-                            <span className='synopsis'>{this.props.synopsis}</span>
-                            <ReviewList/>
+                            <span className='synopsis'>{synopsis}</span>
+                            <h4 className='mt-3'>Reviews</h4>
+
+                            {/* Display the reviews for each movie by mapping the reviews array */}
+                            {reviews.map((review, index) => {
+                                return <Review key={index} review={review} />
+                            })}
+                            REVIEW LIST FOR THIS MOVIE HERE<ReviewList/>
                         </div>
                         <div className='col-4'>
-                            <img src={this.props.image} id='movie-poster' className='mx-auto img-fluid' alt='movie-poster-image'/>
+                            <img src={image} id='movie-poster' className='mx-auto img-fluid' alt='movie-poster-image'/>
                         </div>
                     </div>
                 </div>
 
-                <div className='card-footer'>                    
-                    <ReviewButton/>
+                <div className='card-footer'>
+                    <ReviewForm/>
                 </div>
             </div>
         </div>       
