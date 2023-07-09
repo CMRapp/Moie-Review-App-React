@@ -10,11 +10,13 @@ export default class ReviewList extends React.Component {
    } 
 
     render () {
+        const {reviews} = this.state;
+        
         return (
             <div className = 'container'>
                {/* Display the reviews for each movie by mapping the reviews array */}
-                 {this.state.reviews.map((review, index) => {
-                    return <Review key={index} review={review} />
+                 {reviews.map((review, index) => {
+                    return <Review key={index} reviews={review} />
                 })}
             </div>
         );

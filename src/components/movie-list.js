@@ -37,12 +37,24 @@ export default class MovieList extends React.Component {
     }
     
     render () {
-        const { movies } = this.state;
+        const {movies} = this.state;
+        
+        //testing: populate one review of first movie
+        this.state.movies[0].reviews = {
+            userName:'Chris',
+            stars: '5',
+            date: '5/5/23',
+            review: 'Great Film!'
+        }; 
+        
+        console.log('Test ' + this.state.movies[0].title); 
+        console.log('Test 2 ' + this.state.movies[0].reviews.review); 
+        ///end testing
 
         return (
             <div className='container'>
-                {/* Map through the array and create movie components using array ndex as a key */}
-                {movies.map((movie, index) => (
+                {/* Map through the array and create movie components using array index as a key */}
+                { movies.map((movie, index) => (
                     <Movie key={index} movie={movie} />
                 ))}
             </div>

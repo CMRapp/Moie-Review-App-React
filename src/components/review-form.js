@@ -1,21 +1,20 @@
 import React from 'react';
-import Modal from "react-bootstrap/Modal";
 
 export default class ReviewForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
+            movi:props.movie,
             userName: '',
             stars: '',
             review:'',
         };
 
-        //create binders to handle submit button
+        //create binders to handle changes and submit button
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(event) {
-        event.preventDefault();
         this.setState({
             userName: event.target.value,
             starRating: event.target.value,
@@ -39,8 +38,8 @@ export default class ReviewForm extends React.Component {
                         </div>
 
                         <div>
-                        <label className='h4 mt-3' for='review'>Your Review</label>
-                        <textarea className='form-control' id='review' rows='3'></textarea>
+                            <label className='h4 mt-3' for='review'>Your Review</label>
+                            <textarea className='form-control' id='review' rows='3'></textarea>
                         </div>
                     </div>
                     <button type='submit' className='btn btn-primary my-3'>Submit Your Review</button>

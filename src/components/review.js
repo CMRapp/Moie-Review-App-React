@@ -2,6 +2,16 @@ import React from 'react';
 import Stars from './stars';
 
 export default class Review extends React.Component {
+constructor (props) {
+    super(props);
+    this.state = {
+        userName: props.userName,
+        date: props.date,
+        rating: props.rating,
+        review: props.review
+    };
+}
+
 render () {
         return (
             <div className='container'>

@@ -9,7 +9,15 @@ constructor (props){
     this.state= {
         reviews: this.props.movie.reviews
     };
+
+    this.addReview = this.addReview.bind(this);
 }
+
+    addReview(review) {
+        let tempReview = this.state.reviews;     //create temp array for holding reviews
+        tempReview.push(review);                 //add new review to array
+        this.setState({reviews: tempReview});    //update review prop with new array data
+    }
 
 render () {
     //use const for cleaner code below when inserting props
@@ -31,12 +39,8 @@ render () {
                             <h5 className='mt-3'>Storyline</h5>
                             <span className='synopsis'>{synopsis}</span>
                             <h4 className='mt-3'>Reviews</h4>
-
-                            {/* Display the reviews for each movie by mapping the reviews array */}
-                            {reviews.map((review, index) => {
-                                return <Review key={index} review={review} />
-                            })}
-                            REVIEW LIST FOR THIS MOVIE HERE<ReviewList/>
+                            REVIEW LIST FOR THIS MOVIE HERE
+                            <ReviewList/>
                         </div>
                         <div className='col-4'>
                             <img src={image} id='movie-poster' className='mx-auto img-fluid' alt='movie-poster-image'/>
@@ -45,7 +49,7 @@ render () {
                 </div>
 
                 <div className='card-footer'>
-                    <ReviewForm/>
+                    <ReviewForm onClick={this.addReview} movie={this.state.title} key={this.state.title}/>
                 </div>
             </div>
         </div>       
