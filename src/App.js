@@ -7,7 +7,6 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 import Header from './components/header';
 import Footer from './components/footer';
 import MovieList from './components/movie-list';
-import ReviewList from './components/review-list';
 
 library.add(fab, faStar)
 

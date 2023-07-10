@@ -7,19 +7,11 @@ export default class Movie extends React.Component {
 constructor (props){
     super(props);
     this.state= {
-        reviews: this.props.movie.reviews
+        reviews: props.reviews
     };
-
-    this.addReview = this.addReview.bind(this);
 }
 
-    addReview(review) {
-        let tempReview = this.state.reviews;     //create temp array for holding reviews
-        tempReview.push(review);                 //add new review to array
-        this.setState({reviews: tempReview});    //update review prop with new array data
-    }
-
-render () {
+   render () {
     //use const for cleaner code below when inserting props
     const {title, rating, released,synopsis, image} = this.props.movie;
     const {reviews} = this.state;
@@ -39,8 +31,14 @@ render () {
                             <h5 className='mt-3'>Storyline</h5>
                             <span className='synopsis'>{synopsis}</span>
                             <h4 className='mt-3'>Reviews</h4>
-                            REVIEW LIST FOR THIS MOVIE HERE
-                            <ReviewList/>
+
+                            {/* In leiu of Review List Container : Map through movie reviews to display them */}
+                            {reviews.map((review, index) => (
+                                <div key={index}>
+                                    <Review userName={review.userName} date={review.date} review={review.review} rating={review.rating}/>
+                                </div>
+                            ))}
+                            
                         </div>
                         <div className='col-4'>
                             <img src={image} id='movie-poster' className='mx-auto img-fluid' alt='movie-poster-image'/>
@@ -49,7 +47,7 @@ render () {
                 </div>
 
                 <div className='card-footer'>
-                    <ReviewForm onClick={this.addReview} movie={this.state.title} key={this.state.title}/>
+                    <ReviewForm/>
                 </div>
             </div>
         </div>       

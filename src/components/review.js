@@ -2,26 +2,19 @@ import React from 'react';
 import Stars from './stars';
 
 export default class Review extends React.Component {
-constructor (props) {
+constructor(props){
     super(props);
-    this.state = {
-        userName: props.userName,
-        date: props.date,
-        rating: props.rating,
-        review: props.review
-    };
 }
-
-render () {
+    render () {
         return (
             <div className='container'>
                 <div className='card my-5'>
                     <div className='card-header bg-success text-white'>
-                        {this.props.userName} {this.props.date} NAME & DATE
+                        {this.props.userName} {this.props.date} 
                     </div>
 
                     <div className='card-body'>
-                        {this.props.review} REVIEW CONTENT
+                        {this.props.review}
                     </div>
 
                     <div className='card-footer'>
