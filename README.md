@@ -17,6 +17,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+## Additional Installations Needed
+Bootstrap<br/> `npm i bootstrap`<br/><br/>
+Font Awesome<br/>
+`npm i --save @fortawesome/fontawesome-svg-core` <br/> 
+`npm install --save @fortawesome/free-solid-svg-icons` <br/>
+`npm install --save @fortawesome/react-fontawesome`
+
 ### `npm test`
 
 Launches the test runner in the interactive watch mode.\
