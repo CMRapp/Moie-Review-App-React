@@ -4,7 +4,7 @@ export default class ReviewForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            movi:props.movie,
+            movie:props.movie,
             userName: '',
             stars: '',
             review:'',

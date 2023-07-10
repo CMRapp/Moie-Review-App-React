@@ -1,6 +1,5 @@
 import React from 'react';
 import Review from './review';
-import ReviewList from './review-list';
 import ReviewForm from './review-form';
 
 export default class Movie extends React.Component {
