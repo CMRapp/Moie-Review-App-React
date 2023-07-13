@@ -4,10 +4,7 @@ export default class ReviewForm extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            movie:props.movie,
-            userName: '',
-            stars: '',
-            review:'',
+            movieId:props.movieId
         };
 
         //create binders to handle changes and submit button
@@ -38,7 +35,7 @@ export default class ReviewForm extends React.Component {
                         </div>
 
                         <div>
-                            <label className='h4 mt-3' for='review'>Your Review</label>
+                            <label className='h4 mt-3'>Your Review</label>
                             <textarea className='form-control' id='review' rows='3'></textarea>
                         </div>
                     </div>

@@ -9,6 +9,7 @@ export default class MovieList extends React.Component {
             //create an array of movies with all movie props including an empty array for reviews
             movies: [
                 {
+                    movieId:0,
                     title: 'Indiana Jones and the Raiders of the Lost Ark',
                     rating: 'PG',
                     released: '1981',
@@ -32,6 +33,7 @@ export default class MovieList extends React.Component {
                 },
 
                 {
+                    movieId:1,
                     title: 'Indiana Jones and the Temple of Doom',
                     rating: 'PG',
                     released: '1984',
@@ -47,6 +49,7 @@ export default class MovieList extends React.Component {
                     ]
                 },
                 {
+                    movieId:2,
                     title: 'Indiana Jones and the Last Crusade',
                     rating: 'PG',
                     released: '1989',
@@ -72,9 +75,8 @@ export default class MovieList extends React.Component {
             <div className='container'>
                 {/* Map through the array and create movie components using array index as a key */}
                 { movies.map((movie, index) => (
-                    <div>
-                        <Movie key={index} movie={movie} reviews={movie.reviews}/> 
-                        <ReviewList key={index} review={movie.reviews}/>
+                    <div key={index}>
+                        <Movie movie={movie} reviews={movie.reviews}/>
                     </div>
                 ))}
             </div>
